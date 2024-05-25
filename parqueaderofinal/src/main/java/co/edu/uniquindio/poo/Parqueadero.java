@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parqueadero {
+    private String nombre;
+    private int numeroPuesto;
     private List<Registro> registros;
 
-    public Parqueadero() {
+    public Parqueadero(String nombre, int numeroPuesto) {
+        this.nombre = nombre;
+        this.numeroPuesto = numeroPuesto;
         this.registros = new ArrayList<>();
     }
+
 
     // Método para registrar la entrada de un vehículo
     public void registrarEntrada(Registro registro) {
@@ -87,5 +92,20 @@ public class Parqueadero {
 
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNumeroPuesto() {
+        return numeroPuesto;
+    }
+
+    public void setNumeroPuesto(int numeroPuesto) {
+        this.numeroPuesto = numeroPuesto;
     }
 }
