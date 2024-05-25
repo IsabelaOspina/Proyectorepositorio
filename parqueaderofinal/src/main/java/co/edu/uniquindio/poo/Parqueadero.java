@@ -90,8 +90,7 @@ public class Parqueadero {
     public void crearParqueadero(int numeroPuesto){
         Puesto[] parqueadero=new Puesto[numeroPuesto];
          for(int i=0; i<numeroPuesto; i++){
-            parqueadero[i]= new Puesto(true);
-            
+            parqueadero[i]= new Puesto(true);   
 
          }
 

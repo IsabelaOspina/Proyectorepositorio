@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo;
 
-import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParqueaderoTest {
-        private static final Logger LOG = Logger.getLogger(AppTest.class.getName());
 
         @Test
         public void testCalcularTarifaCarro() {
