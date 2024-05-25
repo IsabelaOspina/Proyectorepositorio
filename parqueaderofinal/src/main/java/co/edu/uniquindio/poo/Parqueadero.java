@@ -10,11 +10,8 @@ public class Parqueadero {
     private List<Registro> registros;
 
     public Parqueadero(String nombre, int numeroPuesto) {
-        this.nombre = nombre;
-        this.numeroPuesto = numeroPuesto;
         this.registros = new ArrayList<>();
     }
-
 
     // Método para registrar la entrada de un vehículo
     public void registrarEntrada(Registro registro) {
@@ -90,9 +87,19 @@ public class Parqueadero {
         return horas * tarifa;
     }
 
+    public void crearParqueadero(int numeroPuesto){
+        Puesto[] parqueadero=new Puesto[numeroPuesto];
+         for(int i=0; i<numeroPuesto; i++){
+            parqueadero[i]= new Puesto(true);
+            
+
+         }
+
+    }
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -108,4 +115,10 @@ public class Parqueadero {
     public void setNumeroPuesto(int numeroPuesto) {
         this.numeroPuesto = numeroPuesto;
     }
+
+    public List<Registro> getRegistros() {
+        return registros;
+    }
+
+    
 }
