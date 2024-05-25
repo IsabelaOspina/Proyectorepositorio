@@ -7,10 +7,18 @@ public enum TipoVehiculo {
 
     private final double tarifaHora;
 
+    /**
+     * constructor tipo de vehiculo
+     * @param tarifaHora
+     */
     TipoVehiculo(double tarifaHora) {
         this.tarifaHora = tarifaHora;
     }
 
+    /**
+     * metodo get para tarifa por hora
+     * @return
+     */
     public double getTarifaHora() {
         return tarifaHora;
     }

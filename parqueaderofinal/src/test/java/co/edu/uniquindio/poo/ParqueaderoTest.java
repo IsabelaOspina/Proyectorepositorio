@@ -10,6 +10,7 @@ public class ParqueaderoTest {
 
     @Test
     public void testCalcularTarifaCarro() {
+        LOG.info("iniciando test calcular hora tarifa");
         LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
         LocalDateTime horaSalida = LocalDateTime.of(2024, 5, 1, 12, 30);
         Registro registro = new Registro(horaEntrada, horaSalida);
@@ -18,5 +19,6 @@ public class ParqueaderoTest {
         double tarifaCalculada = parqueadero.calcularTarifa(registro, TipoVehiculo.CARRO);
 
         assertEquals(7500, tarifaCalculada, 0);
+        LOG.info("finalizando test calcular hora tarifa");
     }
 }
