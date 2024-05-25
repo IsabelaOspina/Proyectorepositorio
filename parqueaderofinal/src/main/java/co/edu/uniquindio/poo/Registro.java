@@ -6,10 +6,12 @@ import java.time.LocalDateTime;
 public class Registro {
     private LocalDateTime horaEntrada;
     private LocalDateTime horaSalida;
+    private TipoVehiculo tipoVehiculo;
 
-    public Registro(LocalDateTime horaEntrada, LocalDateTime horaSalida) {
+    public Registro(LocalDateTime horaEntrada, LocalDateTime horaSalida, TipoVehiculo tipoVehiculo) {
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
+        this.tipoVehiculo = tipoVehiculo;
     }
 
     public long CalcularHoraTotal(LocalDateTime horaEntrada, LocalDateTime horaSalida) {
@@ -39,6 +41,14 @@ public class Registro {
 
     public void setHoraSalida(LocalDateTime horaSalida) {
         this.horaSalida = horaSalida;
+    }
+
+    public TipoVehiculo getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
     }
 
 }
