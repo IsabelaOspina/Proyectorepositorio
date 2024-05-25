@@ -1,6 +1,13 @@
 package co.edu.uniquindio.poo;
 
 public class Carro extends Vehiculo {
+
+    /**
+     * constructor de la clase carro
+     * @param placa
+     * @param modelo
+     * @param propietario
+     */
     public Carro(String placa, String modelo, Propietario propietario) {
         super(placa, modelo, propietario, TipoVehiculo.CARRO);
     }
