@@ -22,6 +22,6 @@ public class Propietario {
     }
 
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 }
