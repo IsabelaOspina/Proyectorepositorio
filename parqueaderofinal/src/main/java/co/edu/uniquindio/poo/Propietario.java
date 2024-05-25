@@ -43,6 +43,6 @@ public class Propietario {
      * @param nombre
      */
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 }
