@@ -11,8 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParqueaderoTest {
-        private static final Logger LOG = Logger.getLogger(AppTest.class.getName());
-
         @Test
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
