@@ -19,7 +19,7 @@ public class ParqueaderoTest {
                 LocalDateTime horaSalida = LocalDateTime.of(2024, 5, 1, 12, 20);
                 Registro registro = new Registro(horaEntrada, horaSalida, TipoVehiculo.CARRO);
 
-                Parqueadero parqueadero = new Parqueadero();
+                Parqueadero parqueadero = new Parqueadero("parking",100);
                 double tarifaCalculada = parqueadero.calcularTarifa(registro, TipoVehiculo.CARRO);
 
                 assertEquals(5000, tarifaCalculada, 0);
@@ -53,7 +53,7 @@ public class ParqueaderoTest {
                 registros.add(registro4);
 
                 // Crear el objeto Parqueadero y asignar la lista de registros
-                Parqueadero parqueadero = new Parqueadero();
+                Parqueadero parqueadero = new Parqueadero("parking",100);
                 parqueadero.setRegistros(registros);
 
                 // Calcular el total recaudado para el 1 de mayo de 2024
@@ -78,7 +78,7 @@ public class ParqueaderoTest {
                 registros.add(new Registro(LocalDateTime.of(2024, 6, 1, 10, 0), LocalDateTime.of(2024, 6, 1, 12, 0),
                                 TipoVehiculo.CARRO));
 
-                Parqueadero parqueadero = new Parqueadero();
+                Parqueadero parqueadero = new Parqueadero("parking",100);
                 parqueadero.setRegistros(registros);
 
                 double totalRecaudado = parqueadero.generarReporteMensual(5);
