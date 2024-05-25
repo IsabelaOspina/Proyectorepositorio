@@ -8,9 +8,13 @@ public class Parqueadero {
     private String nombre;
     private int numeroPuesto;
     private List<Registro> registros;
+    private Puesto[] parqueadero;
 
     public Parqueadero(String nombre, int numeroPuesto) {
+        this.nombre = nombre;
+        this.numeroPuesto = numeroPuesto;
         this.registros = new ArrayList<>();
+        this.parqueadero = new Puesto[numeroPuesto];
     }
 
     // Método para registrar la entrada de un vehículo
@@ -87,15 +91,24 @@ public class Parqueadero {
         return horas * tarifa;
     }
 
-    public void crearParqueadero(int numeroPuesto){
-        Puesto[] parqueadero=new Puesto[numeroPuesto];
-         for(int i=0; i<numeroPuesto; i++){
-            parqueadero[i]= new Puesto(true);
-            
-
-         }
-
+    public void crearParqueadero(int numeroPuesto) {
+        this.parqueadero = new Puesto[numeroPuesto];
+        for (int i = 0; i < numeroPuesto; i++) {
+            parqueadero[i] = new Puesto(true);
+        }
     }
+
+    public boolean asignarPuesto(Vehiculo vehiculo) {
+        for (Puesto puesto : parqueadero) {
+            if (puesto.isDisponible()) {
+                puesto.setDisponible(false);
+                puesto.identificarPropietario(vehiculo); // Método para identificar al propietario del vehículo
+                return true; // Puesto asignado correctamente
+            }
+        }
+        return false; // No hay puestos disponibles
+    }
+
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
@@ -120,5 +133,12 @@ public class Parqueadero {
         return registros;
     }
 
-    
+    public Puesto[] getParqueadero() {
+        return parqueadero;
+    }
+
+    public void setParqueadero(Puesto[] parqueadero) {
+        this.parqueadero = parqueadero;
+    }
+
 }
