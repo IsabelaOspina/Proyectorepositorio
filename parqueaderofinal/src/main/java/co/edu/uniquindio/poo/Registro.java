@@ -6,23 +6,14 @@ import java.time.LocalDateTime;
 public class Registro {
     private LocalDateTime horaEntrada;
     private LocalDateTime horaSalida;
+    private TipoVehiculo tipoVehiculo;
 
-    /**
-     * Constructo de la clase registro
-     * @param horaEntrada
-     * @param horaSalida
-     */
-    public Registro(LocalDateTime horaEntrada, LocalDateTime horaSalida) {
+    public Registro(LocalDateTime horaEntrada, LocalDateTime horaSalida, TipoVehiculo tipoVehiculo) {
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
+        this.tipoVehiculo = tipoVehiculo;
     }
 
-    /**
-     * metodo para calcular la cantidad de horas que duro el vehiculo en el parqueadero
-     * @param horaEntrada
-     * @param horaSalida
-     * @return
-     */
     public long CalcularHoraTotal(LocalDateTime horaEntrada, LocalDateTime horaSalida) {
         Duration duracion = Duration.between(horaEntrada, horaSalida);
         long horas = duracion.toHours(); // Obtener las horas completas
@@ -36,35 +27,28 @@ public class Registro {
         return horas;
     }
 
-    /**
-     * metodo get para hora entrada
-     * @return
-     */
     public LocalDateTime getHoraEntrada() {
         return horaEntrada;
     }
-    /**
-     * metodo set para hora entrada
-     * @param horaEntrada
-     */
+
     public void setHoraEntrada(LocalDateTime horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
 
-    /**
-     * metodo get para hora de salida
-     * @return
-     */
     public LocalDateTime getHoraSalida() {
         return horaSalida;
     }
 
-    /**
-     * metodo set para hora de salida
-     * @param horaSalida
-     */
     public void setHoraSalida(LocalDateTime horaSalida) {
         this.horaSalida = horaSalida;
+    }
+
+    public TipoVehiculo getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
     }
 
 }
