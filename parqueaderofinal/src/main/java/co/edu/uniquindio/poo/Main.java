@@ -84,8 +84,8 @@ public class Main {
                     }
                     System.out.print("Ingrese la placa del vehículo: ");
                     String placaSalida = scanner.nextLine();
-                    System.out.print("Ingrese la fecha de salida (YYYY-MM-DD HH:mm:ss): ");
-                    LocalDateTime horaSalida = LocalDateTime.parse(scanner.nextLine());
+                    DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm");
+                    LocalDateTime horaEntrad2a = LocalDateTime.parse(scanner.nextLine(), formatter);
                     Registro registroSalida = parqueadero.buscarRegistroPorPlaca(placaSalida);
 
                     if (registroSalida != null) {
