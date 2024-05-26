@@ -95,7 +95,7 @@ public class Parqueadero {
      * metodo que permite la creacion de puestos en el parqueadero
      */
 
-    private void crearPuestos(int cantidadPuestos) {
+    public void crearPuestos(int cantidadPuestos) {
         Puesto[] puestos = new Puesto[cantidadPuestos];
         for (int i = 0; i < cantidadPuestos; i++) {
             puestos[i] = new Puesto(true);
