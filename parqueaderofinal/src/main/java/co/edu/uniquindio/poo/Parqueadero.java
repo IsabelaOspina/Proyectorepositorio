@@ -9,9 +9,11 @@ public class Parqueadero {
     private int numeroPuestos;
     private List<Registro> registros;
     private Puesto puestos[];
+    private ArrayList <Registro> registroTarifa;
 
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
+        this.registroTarifa=new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
         this.nombre = nombre;
         crearPuestos(numeroPuestos); // La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
@@ -28,8 +30,13 @@ public class Parqueadero {
         registros.remove(registro);
     }
 
-    // Método para generar el reporte diario del dinero recaudado
+    /**
+     * metodo para generar el reporte diario de dinero recogido por dia segun el tipo de vehículo
+     * @param fecha
+     * @return
+     */
     public double[] generarReporteDiario(LocalDate fecha) {
+
         double totalCarro = 0;
         double totalMotoClasica = 0;
         double totalMotoHibrida = 0;
@@ -79,19 +86,26 @@ public class Parqueadero {
         switch (vehiculo.getTipoVehiculo()) {
             case CARRO:
                 tarifa = TipoVehiculo.CARRO.getTarifaHora();
+                registroTarifa.add(registro);
                 break;
             case MOTOCLASICA:
                 tarifa = TipoVehiculo.MOTOCLASICA.getTarifaHora();
+                registroTarifa.add(registro);
                 break;
             case MOTOHIBRIDA:
                 tarifa = TipoVehiculo.MOTOHIBRIDA.getTarifaHora();
+                registroTarifa.add(registro);
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de vehículo no válido ");
         }
 
+       
+
         return horas * tarifa;
     }
+
+
     /*
      * método que permite la creación de puestos en el parqueadero
      */
@@ -122,7 +136,7 @@ public class Parqueadero {
                 return; // Salir del método una vez que el puesto se ha liberado
             }
         }
-        // Si el vehículo no se encuentra en el parqueadero, lanzar una excepción
+        // Si el vehículo no se encuentra en el parqueader.
         throw new IllegalArgumentException("El vehículo no está en el parqueadero.");
     }
 
@@ -136,6 +150,8 @@ public class Parqueadero {
         // excepción
         throw new IllegalArgumentException("No se encontró ningún registro con la placa: " + placa);
     }
+  
+    
 
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
@@ -163,5 +179,9 @@ public class Parqueadero {
 
     public Puesto[] getPuestos() {
         return puestos;
+    }
+
+    public ArrayList<Registro> getRegistroTarifa() {
+        return registroTarifa;
     }
 }

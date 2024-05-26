@@ -3,10 +3,7 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -95,7 +92,11 @@ public class Main {
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
                         parqueadero.registrarSalida(registroSalida);
                         System.out.println("Salida registrada. Monto a pagar: $" + tarifa);
-                        parqueadero.agregarTarifa(tarifa);
+                        
+                        for(int i=0; i < 3;i++){
+                            System.out.println(parqueadero.getRegistroTarifa());
+                        }
+
                     } else {
                         System.out.println("No se encontró un registro de entrada para ese vehículo.");
                     }
@@ -108,8 +109,9 @@ public class Main {
                     }
                     System.out.print("Ingrese la fecha del reporte (YYYY-MM-DD): ");
                     LocalDate fecha = LocalDate.parse(scanner.nextLine());
-                    double[] reporteDiario = parqueadero.generarReporteDiario(fecha);
-
+                    double[] reporteDiario = new double[3]; 
+                    parqueadero.generarReporteDiario(fecha);
+                    
                     System.out.println("Reporte diario:");
                     System.out.println("Total recaudado por carros: $" + reporteDiario[0]);
                     System.out.println("Total recaudado por motos clásicas: $" + reporteDiario[1]);
