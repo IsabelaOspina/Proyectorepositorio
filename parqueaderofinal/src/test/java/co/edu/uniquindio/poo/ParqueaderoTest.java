@@ -16,33 +16,39 @@ public class ParqueaderoTest {
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
                 LocalDateTime horaSalida = LocalDateTime.of(2024, 5, 1, 12, 20);
-                Registro registro = new Registro(horaEntrada, horaSalida, TipoVehiculo.CARRO);
-
+                Propietario propietario=new Propietario("12345", "David");
+                Vehiculo vehiculo=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
+                Registro registro = new Registro(horaEntrada, horaSalida,vehiculo);
                 Parqueadero parqueadero = new Parqueadero("parking", 100);
-                double tarifaCalculada = parqueadero.calcularTarifa(registro, TipoVehiculo.CARRO);
+                double tarifaCalculada = parqueadero.calcularTarifa(registro, vehiculo);
 
                 assertEquals(5000, tarifaCalculada, 0);
         }
 
         @Test
         public void testGenerarReporteDiario() {
+                Propietario propietario=new Propietario("12345", "David");
+                Vehiculo vehiculo1=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
+                Vehiculo vehiculo2=new Vehiculo("BBB-002","2025",propietario,TipoVehiculo.MOTOCLASICA);
+                Vehiculo vehiculo3=new Vehiculo("BBB-090","2015",propietario,TipoVehiculo.MOTOHIBRIDA);
+                Vehiculo vehiculo4=new Vehiculo("IOB-090","202P0",propietario,TipoVehiculo.CARRO);
                 // Crear registros para la prueba
                 Registro registro1 = new Registro(
                                 LocalDateTime.of(2024, 5, 1, 10, 0),
                                 LocalDateTime.of(2024, 5, 1, 12, 30),
-                                TipoVehiculo.CARRO);
+                                vehiculo1);
                 Registro registro2 = new Registro(
                                 LocalDateTime.of(2024, 5, 1, 11, 0),
                                 LocalDateTime.of(2024, 5, 1, 13, 15),
-                                TipoVehiculo.MOTOCLASICA);
+                                vehiculo2);
                 Registro registro3 = new Registro(
                                 LocalDateTime.of(2024, 5, 1, 12, 0),
                                 LocalDateTime.of(2024, 5, 1, 14, 45),
-                                TipoVehiculo.MOTOHIBRIDA);
+                                vehiculo3);
                 Registro registro4 = new Registro(
                                 LocalDateTime.of(2024, 5, 2, 10, 0),
                                 LocalDateTime.of(2024, 5, 2, 12, 0),
-                                TipoVehiculo.CARRO);
+                                vehiculo4);
 
                 // Agregar registros a una lista
                 List<Registro> registros = new ArrayList<>();
@@ -66,16 +72,20 @@ public class ParqueaderoTest {
 
         @Test
         public void testGenerarReporteMensual() {
-
+                Propietario propietario=new Propietario("12345", "David");
+                Vehiculo vehiculo1=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
+                Vehiculo vehiculo2=new Vehiculo("BBB-002","2025",propietario,TipoVehiculo.MOTOCLASICA);
+                Vehiculo vehiculo3=new Vehiculo("BBB-090","2015",propietario,TipoVehiculo.MOTOHIBRIDA);
+                Vehiculo vehiculo4=new Vehiculo("IOB-090","202P0",propietario,TipoVehiculo.CARRO);
                 List<Registro> registros = new ArrayList<>();
                 registros.add(new Registro(LocalDateTime.of(2024, 5, 1, 10, 0), LocalDateTime.of(2024, 5, 1, 12, 30),
-                                TipoVehiculo.CARRO));
+                                vehiculo1));
                 registros.add(new Registro(LocalDateTime.of(2024, 5, 2, 11, 0), LocalDateTime.of(2024, 5, 2, 13, 15),
-                                TipoVehiculo.MOTOCLASICA));
+                                vehiculo2));
                 registros.add(new Registro(LocalDateTime.of(2024, 5, 3, 12, 0), LocalDateTime.of(2024, 5, 3, 14, 45),
-                                TipoVehiculo.MOTOHIBRIDA));
+                                vehiculo3));
                 registros.add(new Registro(LocalDateTime.of(2024, 6, 1, 10, 0), LocalDateTime.of(2024, 6, 1, 12, 0),
-                                TipoVehiculo.CARRO));
+                               vehiculo4));
 
                 Parqueadero parqueadero = new Parqueadero("parking", 100);
                 parqueadero.setRegistros(registros);
