@@ -9,8 +9,23 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParqueaderoTest {
+
+        @Test
+        public void testCrearPuestos(){
+                int cantidadPuestos = 10;
+                Parqueadero parqueadero = new Parqueadero ("parking", cantidadPuestos);
+
+                assertEquals(10, parqueadero.getPuestos().length);
+
+                for (Puesto puesto : parqueadero.getPuestos()) {
+                        assertTrue(puesto.isDisponible());
+                }
+        }
+
+
         @Test
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);

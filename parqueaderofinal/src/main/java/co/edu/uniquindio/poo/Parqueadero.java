@@ -6,11 +6,17 @@ import java.util.List;
 
 public class Parqueadero {
     private String nombre;
-    private int numeroPuesto;
+    private int numeroPuestos;
     private List<Registro> registros;
+    private Puesto puestos[];
 
-    public Parqueadero(String nombre, int numeroPuesto) {
+    
+
+    public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
+        this.numeroPuestos = numeroPuestos;
+        this.nombre=nombre;
+        crearPuestos(numeroPuestos);//La lista de puestos se crea inmediatamente se instancia un Parqueadero y se asigna al atributo puestos (atributo de la clase)
     }
 
     // Método para registrar la entrada de un vehículo
@@ -87,15 +93,15 @@ public class Parqueadero {
         return horas * tarifa;
     }
 
-    public void crearParqueadero(int numeroPuesto){
-        Puesto[] parqueadero=new Puesto[numeroPuesto];
-         for(int i=0; i<numeroPuesto; i++){
-            parqueadero[i]= new Puesto(true);
-            
-
-         }
+    private void crearPuestos(int cantidadPuestos){
+        Puesto [] puestos=new Puesto[cantidadPuestos];
+         for(int i=0; i<cantidadPuestos; i++){
+            puestos[i]= new Puesto(true);
+        }
+        this.puestos = puestos;
 
     }
+
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
@@ -109,15 +115,23 @@ public class Parqueadero {
     }
 
     public int getNumeroPuesto() {
-        return numeroPuesto;
+        return numeroPuestos;
     }
 
     public void setNumeroPuesto(int numeroPuesto) {
-        this.numeroPuesto = numeroPuesto;
+        this.numeroPuestos = numeroPuesto;
     }
 
     public List<Registro> getRegistros() {
         return registros;
+    }
+
+    public Puesto[] getPuestos() {
+        return puestos;
+    }
+
+    public void setPuestos(Puesto[] puestos) {
+        this.puestos = puestos;
     }
 
     
