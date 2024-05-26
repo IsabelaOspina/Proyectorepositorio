@@ -48,8 +48,8 @@ public class Main {
                     System.out.print("Ingrese el nombre del propietario: ");
                     String nombrePropietarioEntrada = scanner.nextLine();
                     System.out.print("Ingrese la fecha de entrada (YYYY-MM-DD-HH:mm): ");
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm");
-                    LocalDateTime horaEntrada = LocalDateTime.parse(scanner.nextLine(), formatter);
+                    DateTimeFormatter formatterEntrada = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm");
+                    LocalDateTime horaEntrada = LocalDateTime.parse(scanner.nextLine(), formatterEntrada);
                     ;
                     Propietario propietarioEntrada = new Propietario(idPropietarioEntrada, nombrePropietarioEntrada);
                     System.out.print("Ingrese el tipo de vehículo (CARRO, MOTOCLASICA, MOTOHIBRIDA): ");
@@ -85,7 +85,8 @@ public class Main {
                     System.out.print("Ingrese la placa del vehículo: ");
                     String placaSalida = scanner.nextLine();
                     System.out.print("Ingrese la fecha de salida (YYYY-MM-DD HH:mm:ss): ");
-                    LocalDateTime horaSalida = LocalDateTime.parse(scanner.nextLine());
+                    DateTimeFormatter formatterSalida = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm");
+                    LocalDateTime horaSalida = LocalDateTime.parse(scanner.nextLine(), formatterSalida);
                     Registro registroSalida = parqueadero.buscarRegistroPorPlaca(placaSalida);
 
                     if (registroSalida != null) {
