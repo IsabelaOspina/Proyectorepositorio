@@ -60,7 +60,7 @@ public class Main {
                                 tipoEntrada);
                     }
 
-                    LocalDateTime horaEntrada = LocalDateTime.now();
+                        LocalDateTime horaEntrada = LocalDateTime.parse(scanner.nextLine());
                     Registro registroEntrada = new Registro(horaEntrada, null, vehiculoEntrada);
                     parqueadero.registrarEntrada(registroEntrada);
 
@@ -77,22 +77,22 @@ public class Main {
                     Registro registroSalida = parqueadero.buscarRegistroPorPlaca(placaSalida);
 
                     if (registroSalida != null) {
-                        LocalDateTime horaSalida = LocalDateTime.now();
+                        LocalDateTime horaSalida = LocalDateTime.parse(scanner.nextLine());
                         registroSalida.setHoraSalida(horaSalida);
-                        double tarifa = parqueadero.calcularTarifa(registroSalida, registroSalida.getVehiculo());
+                        double tarifa = parqueadero.calcularTarifa(registroSalida,registroSalida.getVehiculo());
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
                         parqueadero.registrarSalida(registroSalida);
                         System.out.println("Salida registrada. Monto a pagar: $" + tarifa);
                     } else {
                         System.out.println("No se encontró un registro de entrada para ese vehículo.");
-                    }
+                    }   
                     break;
                 case 4:
                     // Generar reporte diario
                     System.out.print("Ingrese la fecha del reporte (YYYY-MM-DD): ");
                     LocalDate fecha = LocalDate.parse(scanner.nextLine());
                     double[] reporteDiario = parqueadero.generarReporteDiario(fecha);
-
+                    
                     System.out.println("Reporte diario:");
                     System.out.println("Total recaudado por carros: $" + reporteDiario[0]);
                     System.out.println("Total recaudado por motos clásicas: $" + reporteDiario[1]);

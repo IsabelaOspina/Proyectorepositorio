@@ -68,6 +68,7 @@ public class ParqueaderoTest {
                 double[] expected = { 7500, 3000, 3600 }; // total para carro, moto clásica, moto híbrida
                                                           // respectivamente
                 assertArrayEquals(expected, totalRecaudado);
+                System.out.println(totalRecaudado);
         }
 
         @Test
