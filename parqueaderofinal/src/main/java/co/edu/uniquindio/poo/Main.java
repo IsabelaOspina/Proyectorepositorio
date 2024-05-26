@@ -37,7 +37,7 @@ public class Main {
                     parqueadero = new Parqueadero(nombreParqueadero, numeroPuestos);
                     System.out.println("Parqueadero creado exitosamente.");
                     break;
-                case 2:
+                    ase 2:
                     // Registrar entrada de vehículo
                     System.out.print("Ingrese la placa del vehículo: ");
                     String placaEntrada = scanner.nextLine();
@@ -47,12 +47,14 @@ public class Main {
                     String idPropietarioEntrada = scanner.nextLine();
                     System.out.print("Ingrese el nombre del propietario: ");
                     String nombrePropietarioEntrada = scanner.nextLine();
-
+                    System.out.print("Ingrese la fecha de entrada (YYYY-MM-DD HH:mm:ss): ");
+                    LocalDateTime horaEntrada = LocalDateTime.parse(scanner.nextLine());
+                
                     Propietario propietarioEntrada = new Propietario(idPropietarioEntrada, nombrePropietarioEntrada);
                     System.out.print("Ingrese el tipo de vehículo (CARRO, MOTOCLASICA, MOTOHIBRIDA): ");
                     String tipoVehiculoEntrada = scanner.nextLine().toUpperCase();
                     TipoVehiculo tipoEntrada = TipoVehiculo.valueOf(tipoVehiculoEntrada);
-
+                
                     Vehiculo vehiculoEntrada;
                     if (tipoEntrada == TipoVehiculo.CARRO) {
                         vehiculoEntrada = new Carro(placaEntrada, modeloEntrada, propietarioEntrada);
@@ -60,14 +62,12 @@ public class Main {
                         System.out.print("Ingrese la velocidad máxima de la moto: ");
                         int velocidadMaxima = scanner.nextInt();
                         scanner.nextLine(); // Consumir el salto de línea
-                        vehiculoEntrada = new Moto(placaEntrada, modeloEntrada, propietarioEntrada, velocidadMaxima,
-                                tipoEntrada);
+                        vehiculoEntrada = new Moto(placaEntrada, modeloEntrada, propietarioEntrada, velocidadMaxima, tipoEntrada);
                     }
-
-                    LocalDateTime horaEntrada = LocalDateTime.now();
+                
                     Registro registroEntrada = new Registro(horaEntrada, null, vehiculoEntrada);
                     parqueadero.registrarEntrada(registroEntrada);
-
+                
                     if (parqueadero.asignarPuesto(vehiculoEntrada)) {
                         System.out.println("Entrada registrada y puesto asignado.");
                     } else {
@@ -78,10 +78,11 @@ public class Main {
                     // Registrar salida de vehículo
                     System.out.print("Ingrese la placa del vehículo: ");
                     String placaSalida = scanner.nextLine();
+                    System.out.print("Ingrese la fecha de salida (YYYY-MM-DD HH:mm:ss): ");
+                    LocalDateTime horaSalida = LocalDateTime.parse(scanner.nextLine());
                     Registro registroSalida = parqueadero.buscarRegistroPorPlaca(placaSalida);
-
+                
                     if (registroSalida != null) {
-                        LocalDateTime horaSalida = LocalDateTime.now();
                         registroSalida.setHoraSalida(horaSalida);
                         double tarifa = parqueadero.calcularTarifa(registroSalida, registroSalida.getVehiculo());
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
