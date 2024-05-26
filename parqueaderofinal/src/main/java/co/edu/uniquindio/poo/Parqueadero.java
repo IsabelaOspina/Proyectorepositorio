@@ -29,18 +29,18 @@ public class Parqueadero {
     }
 
     // Método para generar el reporte diario del dinero recaudado
-    public double[] generarReporteDiario(LocalDate fecha) {
+    public double[] generarReporteDiario(LocalDate fecha,Vehiculo vehiculo) {
         double totalCarro = 0;
         double totalMotoClasica = 0;
         double totalMotoHibrida = 0;
 
         for (Registro registro : registros) {
             if (registro.getHoraEntrada().toLocalDate().equals(fecha)) {
-                TipoVehiculo tipoVehiculo = registro.getTipoVehiculo();
+                TipoVehiculo tipoVehiculo = registro.getVehiculo();
                 double tarifa = calcularTarifa(registro, tipoVehiculo);
 
                 // Actualizar el total recaudado según el tipo de vehículo
-                switch (tipoVehiculo) {
+                switch (vehiculo.getTipoVehiculo()) {
                     case CARRO:
                         totalCarro += tarifa;
                         break;
@@ -65,17 +65,17 @@ public class Parqueadero {
         double totalRecaudado = 0;
         for (Registro registro : registros) {
             if (registro.getHoraEntrada().getMonthValue() == mes) {
-                totalRecaudado += calcularTarifa(registro, registro.getTipoVehiculo());
+                totalRecaudado += calcularTarifa(registro, registro.getVehiculo());
             }
         }
         return totalRecaudado;
     }
 
-    public double calcularTarifa(Registro registro, TipoVehiculo tipoVehiculo) {
+    public double calcularTarifa(Registro registro, Vehiculo vehiculo) {
         long horas = registro.CalcularHoraTotal(registro.getHoraEntrada(), registro.getHoraSalida());
         double tarifa;
 
-        switch (tipoVehiculo) {
+        switch (vehiculo.getTipoVehiculo()) {
             case CARRO:
                 tarifa = TipoVehiculo.CARRO.getTarifaHora();
                 break;
@@ -86,7 +86,7 @@ public class Parqueadero {
                 tarifa = TipoVehiculo.MOTOHIBRIDA.getTarifaHora();
                 break;
             default:
-                throw new IllegalArgumentException("Tipo de vehículo no válido: " + tipoVehiculo);
+                throw new IllegalArgumentException("Tipo de vehículo no válido ");
         }
 
         return horas * tarifa;

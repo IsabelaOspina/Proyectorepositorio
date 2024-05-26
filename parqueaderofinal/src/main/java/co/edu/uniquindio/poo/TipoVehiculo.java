@@ -16,6 +16,20 @@ public enum TipoVehiculo {
     }
 
     /**
+     * metodo para convertir las opciones del enum en texto
+     * @param text
+     * @return
+     */
+    public static TipoVehiculo fromString(String texto) {
+        for (TipoVehiculo tipo : TipoVehiculo.values()) {
+            if (tipo.name().equalsIgnoreCase(texto)) {
+                return tipo;
+            }
+        }
+        throw new IllegalArgumentException("Tipo de vehículo no válido: " + texto);
+    }
+
+    /**
      * metodo get para tarifa por hora
      * @return
      */
