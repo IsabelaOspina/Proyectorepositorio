@@ -13,8 +13,5 @@ public class App {
             System.out.println((i+1) + " = " +parqueadero.getPuestos()[i].isDisponible());
         }
 
-
-
-        System.out.println("Hello World!");
     }
 }
