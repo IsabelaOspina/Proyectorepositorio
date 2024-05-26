@@ -10,13 +10,12 @@ public class Parqueadero {
     private List<Registro> registros;
     private Puesto puestos[];
 
-    
-
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
-        this.nombre=nombre;
-        crearPuestos(numeroPuestos);//La lista de puestos se crea inmediatamente se instancia un Parqueadero y se asigna al atributo puestos (atributo de la clase)
+        this.nombre = nombre;
+        crearPuestos(numeroPuestos);// La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
+                                    // asigna al atributo puestos (atributo de la clase)
     }
 
     // Método para registrar la entrada de un vehículo
@@ -96,13 +95,24 @@ public class Parqueadero {
      * metodo que permite la creacion de puestos en el parqueadero
      */
 
-    private void crearPuestos(int cantidadPuestos){
-        Puesto [] puestos=new Puesto[cantidadPuestos];
-         for(int i=0; i<cantidadPuestos; i++){
-            puestos[i]= new Puesto(true);
+    private void crearPuestos(int cantidadPuestos) {
+        Puesto[] puestos = new Puesto[cantidadPuestos];
+        for (int i = 0; i < cantidadPuestos; i++) {
+            puestos[i] = new Puesto(true);
         }
         this.puestos = puestos;
 
+    }
+
+    public boolean asignarPuesto(Vehiculo vehiculo) {
+        for (Puesto puesto : puestos) {
+            if (puesto.isDisponible()) {
+                puesto.setDisponible(false);
+                puesto.identificarPropietario(vehiculo); // Método para identificar al propietario del vehículo
+                return true; // Puesto asignado correctamente
+            }
+        }
+        return false; // No hay puestos disponibles
     }
 
     public void setRegistros(List<Registro> registros) {
@@ -137,5 +147,4 @@ public class Parqueadero {
         this.puestos = puestos;
     }
 
-    
 }
