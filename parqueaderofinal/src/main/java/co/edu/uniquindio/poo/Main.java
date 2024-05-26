@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,6 @@ public class Main {
             System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
             int opcion = scanner.nextInt();
-
             scanner.nextLine(); // Consumir el salto de línea
 
             switch (opcion) {
@@ -90,9 +90,12 @@ public class Main {
                         registroSalida.setHoraSalida(horaSalida);
                         double tarifa = parqueadero.calcularTarifa(registroSalida, registroSalida.getVehiculo());
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
-                        // parqueadero.registrarSalida(registroSali1da.getHoraEntrada(),
-                        // registroSalida.getHoraEntrada());
+                        parqueadero.registrarSalida(registroSalida);
                         System.out.println("Salida registrada. Monto a pagar: $" + tarifa);
+                        
+                        for(int i=0; i < 3;i++){
+                            System.out.println(parqueadero.getRegistroTarifa());
+                        }
 
                     } else {
                         System.out.println("No se encontró un registro de entrada para ese vehículo.");
@@ -100,11 +103,15 @@ public class Main {
                     break;
                 case 4:
                     // Generar reporte diario
+                    if (parqueadero == null) {
+                        System.out.println("No hay parqueadero creado.");
+                        break;
+                    }
                     System.out.print("Ingrese la fecha del reporte (YYYY-MM-DD): ");
-                    String fechaReporte = scanner.nextLine();
-                    LocalDate fecha = LocalDate.parse(fechaReporte);
-                    double[] reporteDiario = parqueadero.generarReporteDiario(fecha);
-
+                    LocalDate fecha = LocalDate.parse(scanner.nextLine());
+                    double[] reporteDiario = new double[3]; 
+                    parqueadero.generarReporteDiario(fecha);
+                    
                     System.out.println("Reporte diario:");
                     System.out.println("Total recaudado por carros: $" + reporteDiario[0]);
                     System.out.println("Total recaudado por motos clásicas: $" + reporteDiario[1]);
