@@ -4,6 +4,7 @@ public class Carro extends Vehiculo {
 
     /**
      * constructor de la clase carro
+     * 
      * @param placa
      * @param modelo
      * @param propietario
