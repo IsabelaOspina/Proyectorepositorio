@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -81,5 +83,34 @@ public class ParqueaderoTest {
                 double totalRecaudado = parqueadero.generarReporteMensual(5);
 
                 assertEquals(14100, totalRecaudado, 0);
+        }
+
+        @Test
+        public void testAsignarPuestoDisponible() {
+                Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
+                Propietario propietario = new Propietario("Juan", "12345"); // Crear un propietario
+                Vehiculo vehiculo = new Vehiculo("ABC123", "ModeloX", propietario, TipoVehiculo.CARRO);
+
+                // Verificar que se pueda asignar un puesto cuando hay puestos disponibles
+                assertTrue(parqueadero.asignarPuesto(vehiculo));
+        }
+
+        @Test
+        public void testAsignarPuestoNoDisponible() {
+                Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
+
+                // Llenar todos los puestos
+                parqueadero.asignarPuesto(new Vehiculo("ABC123", "ModeloX", new Propietario("Juan", "12345"),
+                                TipoVehiculo.CARRO));
+                parqueadero.asignarPuesto(new Vehiculo("DEF456", "ModeloY", new Propietario("Ana", "67890"),
+                                TipoVehiculo.MOTOCLASICA));
+                parqueadero.asignarPuesto(new Vehiculo("GHI789", "ModeloZ", new Propietario("Luis", "11223"),
+                                TipoVehiculo.MOTOHIBRIDA));
+
+                Vehiculo vehiculo = new Vehiculo("JKL012", "ModeloW", new Propietario("Carlos", "44556"),
+                                TipoVehiculo.CARRO);
+
+                // Verificar que no se pueda asignar un puesto cuando no hay puestos disponibles
+                assertFalse(parqueadero.asignarPuesto(vehiculo));
         }
 }
