@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo;
 
-import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -11,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParqueaderoTest {
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev_isabela
         @Test
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
