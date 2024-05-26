@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo;
 
 public class Puesto {
     private boolean disponible;
+    private Vehiculo vehiculo;
 
     /**
      * constructo clase puesto
@@ -46,4 +47,7 @@ public class Puesto {
         this.disponible = disponible;
     }
 
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
 }

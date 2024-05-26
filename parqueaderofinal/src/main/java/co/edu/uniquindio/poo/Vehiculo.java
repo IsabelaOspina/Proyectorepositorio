@@ -6,9 +6,9 @@ public class Vehiculo {
     private Propietario propietario;
     private TipoVehiculo tipoVehiculo;
 
-
     /**
      * constructor de vehiculo
+     * 
      * @param placa
      * @param modelo
      * @param propietario
@@ -23,6 +23,7 @@ public class Vehiculo {
 
     /**
      * metodo para obtener la placa
+     * 
      * @return
      */
     public String getPlaca() {
@@ -31,6 +32,7 @@ public class Vehiculo {
 
     /**
      * metodo para set para placa
+     * 
      * @param placa
      */
     public void setPlaca(String placa) {
@@ -39,6 +41,7 @@ public class Vehiculo {
 
     /**
      * metodo para obtener el modelo
+     * 
      * @return
      */
     public String getModelo() {
@@ -47,6 +50,7 @@ public class Vehiculo {
 
     /**
      * metodo set para modelo
+     * 
      * @param modelo
      */
     public void setModelo(String modelo) {
@@ -55,6 +59,10 @@ public class Vehiculo {
 
     /**
      * metodo para obtener al propietario
+     * 
+     * @param nombrePropietarioEntrada
+     * @param idPropietarioEntrada
+     * 
      * @return
      */
     public Propietario getPropietario() {
@@ -63,6 +71,7 @@ public class Vehiculo {
 
     /**
      * metodo set propietario
+     * 
      * @param propietario
      */
     public void setPropietario(Propietario propietario) {
@@ -71,6 +80,7 @@ public class Vehiculo {
 
     /**
      * metodo para obtener el tipo de vehiculo
+     * 
      * @return
      */
     public TipoVehiculo getTipoVehiculo() {
@@ -79,6 +89,7 @@ public class Vehiculo {
 
     /**
      * metodo set para tipo de vehiculo
+     * 
      * @param tipoVehiculo
      */
     public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {

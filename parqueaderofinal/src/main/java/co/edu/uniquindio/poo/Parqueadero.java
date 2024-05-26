@@ -115,6 +115,28 @@ public class Parqueadero {
         return false; // No hay puestos disponibles
     }
 
+    public void liberarPuesto(Vehiculo vehiculo) {
+        for (Puesto puesto : puestos) {
+            if (!puesto.isDisponible() && puesto.getVehiculo().equals(vehiculo)) {
+                puesto.setDisponible(true); // Marcar el puesto como disponible
+                return; // Salir del método una vez que el puesto se ha liberado
+            }
+        }
+        // Si el vehículo no se encuentra en el parqueader.
+        throw new IllegalArgumentException("El vehículo no está en el parqueadero.");
+    }
+
+    public Registro buscarRegistroPorPlaca(String placa) {
+        for (Registro registro : registros) {
+            if (registro.getVehiculo().getPlaca().equals(placa)) {
+                return registro; // Devuelve el registro si se encuentra la placa buscada
+            }
+        }
+        // Si no se encuentra ningún registro con la placa buscada, lanzamos una
+        // excepción
+        throw new IllegalArgumentException("No se encontró ningún registro con la placa: " + placa);
+    }
+
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
