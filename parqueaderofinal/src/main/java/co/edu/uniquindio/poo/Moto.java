@@ -5,6 +5,7 @@ public class Moto extends Vehiculo {
 
     /**
      * constructo de la clase moto
+     * 
      * @param placa
      * @param modelo
      * @param propietario
@@ -17,7 +18,8 @@ public class Moto extends Vehiculo {
     }
 
     /**
-     * metodo para obtener la velocidad maxima 
+     * metodo para obtener la velocidad maxima
+     * 
      * @return
      */
     public int getVelocidadMaxima() {
@@ -25,7 +27,8 @@ public class Moto extends Vehiculo {
     }
 
     /**
-     * metodo sed para la velocidad maxima
+     * metodo set para la velocidad maxima
+     * 
      * @param velocidadMaxima
      */
     public void setVelocidadMaxima(int velocidadMaxima) {
@@ -34,19 +37,16 @@ public class Moto extends Vehiculo {
 
     @Override
     public String getModelo() {
-        // TODO Auto-generated method stub
         return super.getModelo();
     }
 
     @Override
     public String getPlaca() {
-        // TODO Auto-generated method stub
         return super.getPlaca();
     }
 
     @Override
     public Propietario getPropietario() {
-        // TODO Auto-generated method stub
         return super.getPropietario();
     }
 
@@ -75,5 +75,4 @@ public class Moto extends Vehiculo {
         super.setTipoVehiculo(tipoVehiculo);
     }
 
-    
 }

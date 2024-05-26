@@ -6,17 +6,15 @@ import java.util.List;
 
 public class Parqueadero {
     private String nombre;
-    private int numeroPuestos;
+    private int numeroPuesto;
     private List<Registro> registros;
-    private Puesto puestos[];
+    private Puesto[] parqueadero;
 
-    
-
-    public Parqueadero(String nombre, int numeroPuestos) {
+    public Parqueadero(String nombre, int numeroPuesto) {
+        this.nombre = nombre;
+        this.numeroPuesto = numeroPuesto;
         this.registros = new ArrayList<>();
-        this.numeroPuestos = numeroPuestos;
-        this.nombre=nombre;
-        crearPuestos(numeroPuestos);//La lista de puestos se crea inmediatamente se instancia un Parqueadero y se asigna al atributo puestos (atributo de la clase)
+        this.parqueadero = new Puesto[numeroPuesto];
     }
 
     // Método para registrar la entrada de un vehículo
@@ -92,17 +90,23 @@ public class Parqueadero {
 
         return horas * tarifa;
     }
-    /*
-     * metodo que permite la creacion de puestos en el parqueadero
-     */
 
-    private void crearPuestos(int cantidadPuestos){
-        Puesto [] puestos=new Puesto[cantidadPuestos];
-         for(int i=0; i<cantidadPuestos; i++){
-            puestos[i]= new Puesto(true);
+    public void crearParqueadero(int numeroPuesto) {
+        this.parqueadero = new Puesto[numeroPuesto];
+        for (int i = 0; i < numeroPuesto; i++) {
+            parqueadero[i] = new Puesto(true);
         }
-        this.puestos = puestos;
+    }
 
+    public boolean asignarPuesto(Vehiculo vehiculo) {
+        for (Puesto puesto : parqueadero) {
+            if (puesto.isDisponible()) {
+                puesto.setDisponible(false);
+                puesto.identificarPropietario(vehiculo); // Método para identificar al propietario del vehículo
+                return true; // Puesto asignado correctamente
+            }
+        }
+        return false; // No hay puestos disponibles
     }
 
     public void setRegistros(List<Registro> registros) {
@@ -118,24 +122,23 @@ public class Parqueadero {
     }
 
     public int getNumeroPuesto() {
-        return numeroPuestos;
+        return numeroPuesto;
     }
 
     public void setNumeroPuesto(int numeroPuesto) {
-        this.numeroPuestos = numeroPuesto;
+        this.numeroPuesto = numeroPuesto;
     }
 
     public List<Registro> getRegistros() {
         return registros;
     }
 
-    public Puesto[] getPuestos() {
-        return puestos;
+    public Puesto[] getParqueadero() {
+        return parqueadero;
     }
 
-    public void setPuestos(Puesto[] puestos) {
-        this.puestos = puestos;
+    public void setParqueadero(Puesto[] parqueadero) {
+        this.parqueadero = parqueadero;
     }
 
-    
 }
