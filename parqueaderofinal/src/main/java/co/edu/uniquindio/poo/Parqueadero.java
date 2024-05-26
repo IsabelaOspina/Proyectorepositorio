@@ -117,7 +117,7 @@ public class Parqueadero {
 
     public void liberarPuesto(Vehiculo vehiculo) {
         for (Puesto puesto : puestos) {
-            if (!puesto.isDisponible() && puesto.getVehiculo().equals(vehiculo)) {
+            if (!puesto.isDisponible()) {
                 puesto.setDisponible(true); // Marcar el puesto como disponible
                 return; // Salir del método una vez que el puesto se ha liberado
             }
