@@ -122,7 +122,7 @@ public class Parqueadero {
                 return; // Salir del método una vez que el puesto se ha liberado
             }
         }
-        // Si el vehículo no se encuentra en el parqueader.
+        // Si el vehículo no se encuentra en el parqueadero, lanzar una excepción
         throw new IllegalArgumentException("El vehículo no está en el parqueadero.");
     }
 
