@@ -92,6 +92,9 @@ public class Parqueadero {
 
         return horas * tarifa;
     }
+    /*
+     * metodo que permite la creacion de puestos en el parqueadero
+     */
 
     private void crearPuestos(int cantidadPuestos){
         Puesto [] puestos=new Puesto[cantidadPuestos];
