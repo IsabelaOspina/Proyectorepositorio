@@ -104,6 +104,17 @@ public class Parqueadero {
 
     }
 
+    public boolean asignarPuesto(Vehiculo vehiculo) {
+        for (Puesto puesto : puestos) {
+            if (puesto.isDisponible()) {
+                puesto.setDisponible(false);
+                puesto.identificarPropietario(vehiculo); // Método para identificar al propietario del vehículo
+                return true; // Puesto asignado correctamente
+            }
+        }
+        return false; // No hay puestos disponibles
+    }
+
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
