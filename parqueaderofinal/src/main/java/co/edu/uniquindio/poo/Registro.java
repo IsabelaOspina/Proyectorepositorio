@@ -11,7 +11,7 @@ public class Registro {
     public Registro(LocalDateTime horaEntrada, LocalDateTime horaSalida, Vehiculo vehiculo) {
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
-        this.vehiculo=vehiculo;
+        this.vehiculo = vehiculo;
     }
 
     public long CalcularHoraTotal(LocalDateTime horaEntrada, LocalDateTime horaSalida) {
@@ -50,7 +50,5 @@ public class Registro {
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
-
-   
 
 }

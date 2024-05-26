@@ -16,9 +16,9 @@ public class ParqueaderoTest {
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
                 LocalDateTime horaSalida = LocalDateTime.of(2024, 5, 1, 12, 20);
-                Propietario propietario=new Propietario("12345", "David");
-                Vehiculo vehiculo=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
-                Registro registro = new Registro(horaEntrada, horaSalida,vehiculo);
+                Propietario propietario = new Propietario("12345", "David");
+                Vehiculo vehiculo = new Vehiculo("BBB-000", "2025", propietario, TipoVehiculo.CARRO);
+                Registro registro = new Registro(horaEntrada, horaSalida, vehiculo);
                 Parqueadero parqueadero = new Parqueadero("parking", 100);
                 double tarifaCalculada = parqueadero.calcularTarifa(registro, vehiculo);
 
@@ -27,11 +27,11 @@ public class ParqueaderoTest {
 
         @Test
         public void testGenerarReporteDiario() {
-                Propietario propietario=new Propietario("12345", "David");
-                Vehiculo vehiculo1=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
-                Vehiculo vehiculo2=new Vehiculo("BBB-002","2025",propietario,TipoVehiculo.MOTOCLASICA);
-                Vehiculo vehiculo3=new Vehiculo("BBB-090","2015",propietario,TipoVehiculo.MOTOHIBRIDA);
-                Vehiculo vehiculo4=new Vehiculo("IOB-090","202P0",propietario,TipoVehiculo.CARRO);
+                Propietario propietario = new Propietario("12345", "David");
+                Vehiculo vehiculo1 = new Vehiculo("BBB-000", "2025", propietario, TipoVehiculo.CARRO);
+                Vehiculo vehiculo2 = new Vehiculo("BBB-002", "2025", propietario, TipoVehiculo.MOTOCLASICA);
+                Vehiculo vehiculo3 = new Vehiculo("BBB-090", "2015", propietario, TipoVehiculo.MOTOHIBRIDA);
+                Vehiculo vehiculo4 = new Vehiculo("IOB-090", "202P0", propietario, TipoVehiculo.CARRO);
                 // Crear registros para la prueba
                 Registro registro1 = new Registro(
                                 LocalDateTime.of(2024, 5, 1, 10, 0),
@@ -72,11 +72,11 @@ public class ParqueaderoTest {
 
         @Test
         public void testGenerarReporteMensual() {
-                Propietario propietario=new Propietario("12345", "David");
-                Vehiculo vehiculo1=new Vehiculo("BBB-000","2025",propietario,TipoVehiculo.CARRO);
-                Vehiculo vehiculo2=new Vehiculo("BBB-002","2025",propietario,TipoVehiculo.MOTOCLASICA);
-                Vehiculo vehiculo3=new Vehiculo("BBB-090","2015",propietario,TipoVehiculo.MOTOHIBRIDA);
-                Vehiculo vehiculo4=new Vehiculo("IOB-090","202P0",propietario,TipoVehiculo.CARRO);
+                Propietario propietario = new Propietario("12345", "David");
+                Vehiculo vehiculo1 = new Vehiculo("BBB-000", "2025", propietario, TipoVehiculo.CARRO);
+                Vehiculo vehiculo2 = new Vehiculo("BBB-002", "2025", propietario, TipoVehiculo.MOTOCLASICA);
+                Vehiculo vehiculo3 = new Vehiculo("BBB-090", "2015", propietario, TipoVehiculo.MOTOHIBRIDA);
+                Vehiculo vehiculo4 = new Vehiculo("IOB-090", "202P0", propietario, TipoVehiculo.CARRO);
                 List<Registro> registros = new ArrayList<>();
                 registros.add(new Registro(LocalDateTime.of(2024, 5, 1, 10, 0), LocalDateTime.of(2024, 5, 1, 12, 30),
                                 vehiculo1));
@@ -85,7 +85,7 @@ public class ParqueaderoTest {
                 registros.add(new Registro(LocalDateTime.of(2024, 5, 3, 12, 0), LocalDateTime.of(2024, 5, 3, 14, 45),
                                 vehiculo3));
                 registros.add(new Registro(LocalDateTime.of(2024, 6, 1, 10, 0), LocalDateTime.of(2024, 6, 1, 12, 0),
-                               vehiculo4));
+                                vehiculo4));
 
                 Parqueadero parqueadero = new Parqueadero("parking", 100);
                 parqueadero.setRegistros(registros);

@@ -14,8 +14,8 @@ public class Parqueadero {
         this.registros = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
         this.nombre = nombre;
-        crearPuestos(numeroPuestos);// La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
-                                    // asigna al atributo puestos (atributo de la clase)
+        crearPuestos(numeroPuestos); // La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
+                                     // asigna al atributo puestos (atributo de la clase)
     }
 
     // Método para registrar la entrada de un vehículo
@@ -29,17 +29,18 @@ public class Parqueadero {
     }
 
     // Método para generar el reporte diario del dinero recaudado
-    public double[] generarReporteDiario(LocalDate fecha,Vehiculo vehiculo) {
+    public double[] generarReporteDiario(LocalDate fecha) {
         double totalCarro = 0;
         double totalMotoClasica = 0;
         double totalMotoHibrida = 0;
 
         for (Registro registro : registros) {
             if (registro.getHoraEntrada().toLocalDate().equals(fecha)) {
-                TipoVehiculo tipoVehiculo = registro.getVehiculo();
-                double tarifa = calcularTarifa(registro, tipoVehiculo);
+                Vehiculo vehiculo = registro.getVehiculo(); // Obtenemos el vehículo del registro
+                double tarifa = calcularTarifa(registro, vehiculo); // Calculamos la tarifa según el tipo de vehículo
+                                                                    // del registro
 
-                // Actualizar el total recaudado según el tipo de vehículo
+                // Actualizar el total recaudado según el tipo de vehículo del registro
                 switch (vehiculo.getTipoVehiculo()) {
                     case CARRO:
                         totalCarro += tarifa;
@@ -92,7 +93,7 @@ public class Parqueadero {
         return horas * tarifa;
     }
     /*
-     * metodo que permite la creacion de puestos en el parqueadero
+     * método que permite la creación de puestos en el parqueadero
      */
 
     public void crearPuestos(int cantidadPuestos) {
@@ -101,7 +102,6 @@ public class Parqueadero {
             puestos[i] = new Puesto(true);
         }
         this.puestos = puestos;
-
     }
 
     public boolean asignarPuesto(Vehiculo vehiculo) {
@@ -127,12 +127,12 @@ public class Parqueadero {
         this.nombre = nombre;
     }
 
-    public int getNumeroPuesto() {
+    public int getNumeroPuestos() {
         return numeroPuestos;
     }
 
-    public void setNumeroPuesto(int numeroPuesto) {
-        this.numeroPuestos = numeroPuesto;
+    public void setNumeroPuestos(int numeroPuestos) {
+        this.numeroPuestos = numeroPuestos;
     }
 
     public List<Registro> getRegistros() {
@@ -142,9 +142,4 @@ public class Parqueadero {
     public Puesto[] getPuestos() {
         return puestos;
     }
-
-    public void setPuestos(Puesto[] puestos) {
-        this.puestos = puestos;
-    }
-
 }
