@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo;
 
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -8,8 +9,22 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParqueaderoTest {
+
+        @Test
+        public void testCrearPuestos(){
+                int cantidadPuestos = 10;
+                Parqueadero parqueadero = new Parqueadero ("parking", cantidadPuestos);
+
+                assertEquals(10, parqueadero.getPuestos().length);
+
+                for (Puesto puesto : parqueadero.getPuestos()) {
+                        assertTrue(puesto.isDisponible());
+                }
+        }
+
 
         @Test
         public void testCalcularTarifaCarro() {
