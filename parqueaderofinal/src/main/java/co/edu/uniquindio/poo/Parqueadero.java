@@ -9,6 +9,7 @@ public class Parqueadero {
     private int numeroPuestos;
     private List<Registro> registros;
     private Puesto puestos[];
+    
 
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
