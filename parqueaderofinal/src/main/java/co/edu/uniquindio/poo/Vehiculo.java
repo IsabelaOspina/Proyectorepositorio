@@ -22,7 +22,7 @@ public class Vehiculo {
     }
 
     /**
-     * metodo para obtener la placa
+     * metodo que permite obtener la placa de un vehiculo
      * 
      * @return
      */
@@ -31,7 +31,7 @@ public class Vehiculo {
     }
 
     /**
-     * metodo para set para placa
+     * metodo que permite modificar la placa de un vehiculo
      * 
      * @param placa
      */
@@ -40,7 +40,7 @@ public class Vehiculo {
     }
 
     /**
-     * metodo para obtener el modelo
+     * metodo que permite obtener el modelo de un vehiculo
      * 
      * @return
      */
@@ -49,7 +49,7 @@ public class Vehiculo {
     }
 
     /**
-     * metodo set para modelo
+     * metodo que permite modificar el modelo de un vehiculo
      * 
      * @param modelo
      */

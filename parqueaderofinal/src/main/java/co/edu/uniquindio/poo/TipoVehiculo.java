@@ -8,7 +8,7 @@ public enum TipoVehiculo {
     private final double tarifaHora;
 
     /**
-     * constructor tipo de vehiculo
+     * constructor de la clase TipoVehiculo
      * @param tarifaHora
      */
     TipoVehiculo(double tarifaHora) {
@@ -30,7 +30,7 @@ public enum TipoVehiculo {
     }
 
     /**
-     * metodo get para tarifa por hora
+     * metodo get para obtener la tarifa por hora de un vehiculo
      * @return
      */
     public double getTarifaHora() {

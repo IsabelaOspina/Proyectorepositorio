@@ -5,7 +5,7 @@ public class Puesto {
     private Vehiculo vehiculo;
 
     /**
-     * constructo clase puesto
+     * constructo de la clase puesto
      * 
      * @param disponible
      */
@@ -14,7 +14,7 @@ public class Puesto {
     }
 
     /**
-     * metodo para cambiar el puesto de estado
+     * metodo que permitre cambiar el estado de un puesto
      */
     public void cambiarEstado() {
         if (this.disponible) {
@@ -25,7 +25,9 @@ public class Puesto {
         }
 
     }
-
+    /*
+     * metodo que permite identificar el propieteario de un vehiculo
+     */
     public void identificarPropietario(Vehiculo vehiculo) {
         vehiculo.getPropietario();
 
@@ -41,12 +43,14 @@ public class Puesto {
     }
 
     /**
-     * metodo sed
+     * metodo set 
      */
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-
+    /*
+     * metodo para obtener el vehiculo
+     */
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
