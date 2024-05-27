@@ -92,10 +92,6 @@ public class Main {
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
                         parqueadero.registrarSalida(registroSalida);
                         System.out.println("Salida registrada. Monto a pagar: $" + tarifa);
-                        
-                        for(int i=0; i < 3;i++){
-                            System.out.println(parqueadero.getRegistroTarifa());
-                        }
 
                     } else {
                         System.out.println("No se encontró un registro de entrada para ese vehículo.");
