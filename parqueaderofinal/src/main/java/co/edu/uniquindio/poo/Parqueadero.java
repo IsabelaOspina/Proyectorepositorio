@@ -9,11 +9,10 @@ public class Parqueadero {
     private int numeroPuestos;
     private List<Registro> registros;
     private Puesto puestos[];
-    private ArrayList<Registro> registroTarifa;
+    
 
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
-        this.registroTarifa = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
         this.nombre = nombre;
         crearPuestos(numeroPuestos); // La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
@@ -88,15 +87,12 @@ public class Parqueadero {
         switch (vehiculo.getTipoVehiculo()) {
             case CARRO:
                 tarifa = TipoVehiculo.CARRO.getTarifaHora();
-                registroTarifa.add(registro);
                 break;
             case MOTOCLASICA:
                 tarifa = TipoVehiculo.MOTOCLASICA.getTarifaHora();
-                registroTarifa.add(registro);
                 break;
             case MOTOHIBRIDA:
                 tarifa = TipoVehiculo.MOTOHIBRIDA.getTarifaHora();
-                registroTarifa.add(registro);
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de vehículo no válido ");
@@ -176,9 +172,5 @@ public class Parqueadero {
 
     public Puesto[] getPuestos() {
         return puestos;
-    }
-
-    public ArrayList<Registro> getRegistroTarifa() {
-        return registroTarifa;
     }
 }
