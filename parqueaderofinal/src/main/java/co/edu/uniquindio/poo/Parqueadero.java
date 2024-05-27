@@ -9,11 +9,11 @@ public class Parqueadero {
     private int numeroPuestos;
     private List<Registro> registros;
     private Puesto puestos[];
-    private ArrayList <Registro> registroTarifa;
+    private ArrayList<Registro> registroTarifa;
 
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
-        this.registroTarifa=new ArrayList<>();
+        this.registroTarifa = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
         this.nombre = nombre;
         crearPuestos(numeroPuestos); // La lista de puestos se crea inmediatamente se instancia un Parqueadero y se
@@ -31,7 +31,9 @@ public class Parqueadero {
     }
 
     /**
-     * metodo para generar el reporte diario de dinero recogido por dia segun el tipo de vehículo
+     * metodo para generar el reporte diario de dinero recogido por dia segun el
+     * tipo de vehículo
+     * 
      * @param fecha
      * @return
      */
@@ -100,11 +102,8 @@ public class Parqueadero {
                 throw new IllegalArgumentException("Tipo de vehículo no válido ");
         }
 
-       
-
         return horas * tarifa;
     }
-
 
     /*
      * método que permite la creación de puestos en el parqueadero
@@ -119,7 +118,7 @@ public class Parqueadero {
     }
 
     public boolean asignarPuesto(Vehiculo vehiculo) {
-        for (Puesto puesto : puestos) {
+        for (Puesto puesto : this.puestos) {
             if (puesto.isDisponible()) {
                 puesto.setDisponible(false);
                 puesto.identificarPropietario(vehiculo); // Método para identificar al propietario del vehículo
@@ -130,7 +129,7 @@ public class Parqueadero {
     }
 
     public void liberarPuesto(Vehiculo vehiculo) {
-        for (Puesto puesto : puestos) {
+        for (Puesto puesto : this.puestos) {
             if (!puesto.isDisponible()) {
                 puesto.setDisponible(true); // Marcar el puesto como disponible
                 return; // Salir del método una vez que el puesto se ha liberado
@@ -150,8 +149,6 @@ public class Parqueadero {
         // excepción
         throw new IllegalArgumentException("No se encontró ningún registro con la placa: " + placa);
     }
-  
-    
 
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
