@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParqueaderoTest {
+        /*
+         * metodo que permite verificar
+         */
         @Test
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
@@ -24,7 +27,9 @@ public class ParqueaderoTest {
 
                 assertEquals(5000, tarifaCalculada, 0);
         }
-
+        /*
+         * metodo que permite verificar el recaudo total diario en un parqueadero
+         */
         @Test
         public void testGenerarReporteDiario() {
                 Propietario propietario = new Propietario("12345", "David");
@@ -70,7 +75,9 @@ public class ParqueaderoTest {
                 assertArrayEquals(expected, totalRecaudado);
                 
         }
-
+        /*
+         * metodo que permite verificar el recaudo total mensual en un parqueadero
+         */
         @Test
         public void testGenerarReporteMensual() {
                 Propietario propietario = new Propietario("12345", "David");
@@ -95,7 +102,9 @@ public class ParqueaderoTest {
 
                 assertEquals(14100, totalRecaudado, 0);
         }
-
+        /*
+         * metodo que permite verificar que un puesto este disponible para ser asignado
+         */
         @Test
         public void testAsignarPuestoDisponible() {
                 Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
@@ -105,7 +114,9 @@ public class ParqueaderoTest {
                 // Verificar que se pueda asignar un puesto cuando hay puestos disponibles
                 assertTrue(parqueadero.asignarPuesto(vehiculo));
         }
-
+        /*
+         * metodo que permite verificar que no se pueda asignar un puesrto cuando no hayan disponibles
+         */
         @Test
         public void testAsignarPuestoNoDisponible() {
                 Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
@@ -124,4 +135,35 @@ public class ParqueaderoTest {
                 // Verificar que no se pueda asignar un puesto cuando no hay puestos disponibles
                 assertFalse(parqueadero.asignarPuesto(vehiculo));
         }
+        /*
+         * Metodo para buscar la placa de un vehiculo de forma correcta
+         */
+        @Test
+        public void buscarRegistroPorPlaca(){
+                Parqueadero parqueadero = new Parqueadero("Parking", 5);
+                List<Registro> registros = new ArrayList<>();
+                registros.add(new Registro(new Vehiculo("WYR098", "2017", new Propietario("Ana", "67890"),
+                TipoVehiculo.MOTOCLASICA));
+                parqueadero.setRegistros(registros);
+                assertEquals("WYR098", parqueadero.buscarRegistroPorPlaca(""));
+        }
+        /*
+         * prueba que asignar a un vehiculo un puesto no disponible en el parqueadero
+         */
+        @Test
+        public void liberarPuesto(){
+                Parqueadero parqueadero = new Parqueadero("parking",5);
+                Puesto[] puestos = { new Puesto(false) }; // crea con on puesto no disponible
+                parqueadero.setPuestos(puestos);
+        
+                Vehiculo vehiculo = new Vehiculo("YTR567", "2001", new Propietario("Ana", "67890"),
+                TipoVehiculo.MOTOCLASICA);//Está en el puesto no disponible
+                
+                parqueadero.liberarPuesto(vehiculo);
+        
+                assertTrue(puestos[0].isDisponible());//el puesto se libero?
+                
+
+        }
+
 }

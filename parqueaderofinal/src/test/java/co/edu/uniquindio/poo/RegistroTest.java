@@ -10,7 +10,7 @@ public class RegistroTest {
 
     @Test
     /**
-     * prueba del metodo  calcular tarifa
+     * prueba para verificar el tiempo de un vehiculo en un parqueadero
      */
     public void pruebaCalcularHoraTOtal(){
         LocalDateTime horaEntrada=LocalDateTime.of(2024,5,25,11,30);

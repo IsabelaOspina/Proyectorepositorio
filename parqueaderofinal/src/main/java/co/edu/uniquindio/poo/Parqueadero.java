@@ -10,6 +10,9 @@ public class Parqueadero {
     private List<Registro> registros;
     private Puesto puestos[];
 
+    /*
+     * Constructor de la clase
+     */
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
@@ -193,5 +196,8 @@ public class Parqueadero {
      */
     public Puesto[] getPuestos() {
         return puestos;
+    }
+    public void setPuestos(Puesto[] puestos) {
+        this.puestos = puestos;
     }
 }
