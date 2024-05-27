@@ -23,11 +23,6 @@ public class Parqueadero {
         registros.add(registro);
     }
 
-    // Método para registrar la salida de un vehículo
-    public void registrarSalida(Registro registro) {
-        registros.remove(registro);
-    }
-
     /**
      * metodo para generar el reporte diario de dinero recogido por dia segun el
      * tipo de vehículo
