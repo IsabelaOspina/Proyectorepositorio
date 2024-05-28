@@ -26,40 +26,50 @@ public class Registro {
 
         return horas;
     }
+
     /**
      * Metodo que permite obtener la hora de entrada de un vehiculo
+     * 
      * @return
      */
     public LocalDateTime getHoraEntrada() {
         return horaEntrada;
     }
+
     /**
      * Metodo que permite modificar la hora de entrada de un vehiculo
+     * 
      * @return
      */
     public void setHoraEntrada(LocalDateTime horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
+
     /**
      * Metodo que permite obtener la hora de salida de un vehiculo
+     * 
      * @return
      */
     public LocalDateTime getHoraSalida() {
         return horaSalida;
     }
+
     /**
      * Metodo que permite modificar la hora de salida de un vehiculo
+     * 
      * @return
      */
     public void setHoraSalida(LocalDateTime horaSalida) {
         this.horaSalida = horaSalida;
     }
+
     /*
      * metodo que permite obtener un vehiculo
      */
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
+
     /*
      * metodo que permite modificar un vehiculo
      */

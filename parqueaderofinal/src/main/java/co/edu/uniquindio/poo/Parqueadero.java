@@ -10,9 +10,6 @@ public class Parqueadero {
     private List<Registro> registros;
     private Puesto puestos[];
 
-    /*
-     * Constructor de la clase
-     */
     public Parqueadero(String nombre, int numeroPuestos) {
         this.registros = new ArrayList<>();
         this.numeroPuestos = numeroPuestos;
@@ -66,9 +63,7 @@ public class Parqueadero {
         return new double[] { totalCarro, totalMotoClasica, totalMotoHibrida };
     }
 
-    /*
-     * Método para generar el reporte mensual del dinero recaudado
-     */
+    // Método para generar el reporte mensual del dinero recaudado
     public double generarReporteMensual(int mes) {
         double totalRecaudado = 0;
         for (Registro registro : registros) {
@@ -79,9 +74,6 @@ public class Parqueadero {
         return totalRecaudado;
     }
 
-    /*
-     * Metodo para calcular la tarfifa de un vehiculo basado en el registro y el tipo de vehiculo
-     */
     public double calcularTarifa(Registro registro, Vehiculo vehiculo) {
         long horas = registro.CalcularHoraTotal(registro.getHoraEntrada(), registro.getHoraSalida());
         double tarifa;
@@ -114,6 +106,7 @@ public class Parqueadero {
         }
         this.puestos = puestos;
     }
+
     /*
      * Metdo que permite asignar puesto a un vehiculo
      */
@@ -129,11 +122,12 @@ public class Parqueadero {
     }
 
     /*
-     * metodo para liberar un puesto de un parqueadero haciendo que este disponible nuevamente
+     * metodo para liberar un puesto de un parqueadero haciendo que este disponible
+     * nuevamente
      */
     public void liberarPuesto(Vehiculo vehiculo) {
         for (Puesto puesto : this.puestos) {
-            if (!puesto.isDisponible()) { //comprueba si el puesto no esta disponible
+            if (!puesto.isDisponible()) { // comprueba si el puesto no esta disponible
                 puesto.setDisponible(true); // Marcar el puesto como disponible
                 return; // Salir del método una vez que el puesto se ha liberado
             }
@@ -143,7 +137,8 @@ public class Parqueadero {
     }
 
     /*
-     * Metodo que busca un registro específico en una colección de registros, basándose en la placa del vehículo
+     * Metodo que busca un registro específico en una colección de registros,
+     * basándose en la placa del vehículo
      */
     public Registro buscarRegistroPorPlaca(String placa) {
         for (Registro registro : registros) {
@@ -151,7 +146,8 @@ public class Parqueadero {
                 return registro; // Devuelve el registro si se encuentra la placa buscada
             }
         }
-        // Si no se encuentra ningún registro con la placa buscada, lanzamos una excepción
+        // Si no se encuentra ningún registro con la placa buscada, lanzamos una
+        // excepción
         throw new IllegalArgumentException("No se encontró ningún registro con la placa: " + placa);
     }
 
@@ -161,43 +157,46 @@ public class Parqueadero {
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
+
     /*
      * Metodo qu epermite obtener el nombre del parqueadero
      */
     public String getNombre() {
         return nombre;
     }
+
     /*
      * metodo que permite modificar el nomnbre del parqueadero
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     /*
      * metodo que permite obtener el numero de puestos de un parqueadero
      */
     public int getNumeroPuestos() {
         return numeroPuestos;
     }
+
     /*
      * metodo qu epermite modificar el numero de puestos de un parqueadero
      */
     public void setNumeroPuestos(int numeroPuestos) {
         this.numeroPuestos = numeroPuestos;
     }
+
     /*
      * metodo que permite obtener la lista de registros
      */
     public List<Registro> getRegistros() {
         return registros;
     }
+
     /*
      * metodo para obtener el vectro de puestos
      */
     public Puesto[] getPuestos() {
         return puestos;
-    }
-    public void setPuestos(Puesto[] puestos) {
-        this.puestos = puestos;
     }
 }
