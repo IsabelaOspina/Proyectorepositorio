@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParqueaderoTest {
+        /*
+         * metodo que permite verificar
+         */
         @Test
         public void testCalcularTarifaCarro() {
                 LocalDateTime horaEntrada = LocalDateTime.of(2024, 5, 1, 10, 0);
@@ -25,6 +28,9 @@ public class ParqueaderoTest {
                 assertEquals(5000, tarifaCalculada, 0);
         }
 
+        /*
+         * metodo que permite verificar el recaudo total diario en un parqueadero
+         */
         @Test
         public void testGenerarReporteDiario() {
                 Propietario propietario = new Propietario("12345", "David");
@@ -71,6 +77,9 @@ public class ParqueaderoTest {
 
         }
 
+        /*
+         * metodo que permite verificar el recaudo total mensual en un parqueadero
+         */
         @Test
         public void testGenerarReporteMensual() {
                 Propietario propietario = new Propietario("12345", "David");
@@ -96,6 +105,9 @@ public class ParqueaderoTest {
                 assertEquals(14100, totalRecaudado, 0);
         }
 
+        /*
+         * metodo que permite verificar que un puesto este disponible para ser asignado
+         */
         @Test
         public void testAsignarPuestoDisponible() {
                 Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
@@ -106,6 +118,10 @@ public class ParqueaderoTest {
                 assertTrue(parqueadero.asignarPuesto(vehiculo));
         }
 
+        /*
+         * metodo que permite verificar que no se pueda asignar un puesrto cuando no
+         * hayan disponibles
+         */
         @Test
         public void testAsignarPuestoNoDisponible() {
                 Parqueadero parqueadero = new Parqueadero("Mi Parqueadero", 3); // Crear un parqueadero con 3 puestos
