@@ -124,4 +124,50 @@ public class ParqueaderoTest {
                 // Verificar que no se pueda asignar un puesto cuando no hay puestos disponibles
                 assertFalse(parqueadero.asignarPuesto(vehiculo));
         }
+
+        @Test
+        public void testBuscarRegistroPorPlaca() {
+                Parqueadero parqueadero = new Parqueadero("Parqueadero Central", 10);
+                Propietario propietario1 = new Propietario("Juan", "12345");
+                Propietario propietario2 = new Propietario("Maria", "87654");
+                Vehiculo vehiculo1 = new Vehiculo("ABC123", "ModeloX", propietario1, TipoVehiculo.CARRO);
+                Vehiculo vehiculo2 = new Vehiculo("XYZ789", "ModeloY", propietario2, TipoVehiculo.MOTOCLASICA);
+
+                // Establecer fechas y horas específicas
+                LocalDateTime horaEntrada1 = LocalDateTime.of(2024, 5, 25, 10, 0);
+                LocalDateTime horaSalida1 = LocalDateTime.of(2024, 5, 25, 12, 0);
+                LocalDateTime horaEntrada2 = LocalDateTime.of(2024, 5, 25, 11, 0);
+                LocalDateTime horaSalida2 = LocalDateTime.of(2024, 5, 25, 12, 0);
+
+                Registro registro1 = new Registro(horaEntrada1, horaSalida1, vehiculo1);
+                Registro registro2 = new Registro(horaEntrada2, horaSalida2, vehiculo2);
+
+                parqueadero.registrarEntrada(registro1);
+                parqueadero.registrarEntrada(registro2);
+
+                Registro registroEncontrado = parqueadero.buscarRegistroPorPlaca("ABC123");
+                assertEquals(registro1, registroEncontrado,
+                                "El registro encontrado debería coincidir con el registro1.");
+
+                Registro registroEncontrado2 = parqueadero.buscarRegistroPorPlaca("XYZ789");
+                assertEquals(registro2, registroEncontrado2,
+                                "El registro encontrado debería coincidir con el registro2.");
+        }
+
+        @Test
+        public void testLiberarPuesto() {
+                // Configuración inicial
+                Parqueadero parqueadero = new Parqueadero("Central Parking", 1);
+                Propietario propietario = new Propietario("John Doe", "123456");
+                Vehiculo vehiculo = new Vehiculo("ABC123", "Toyota", propietario, TipoVehiculo.CARRO);
+
+                // Asignar un puesto al vehículo
+                parqueadero.asignarPuesto(vehiculo);
+
+                // Liberar el puesto
+                parqueadero.liberarPuesto(vehiculo);
+
+                // Verificar que el puesto esté disponible
+                assertTrue(parqueadero.getPuestos()[0].isDisponible());
+        }
 }
