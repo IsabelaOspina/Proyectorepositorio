@@ -141,6 +141,9 @@ public class ParqueaderoTest {
                 assertFalse(parqueadero.asignarPuesto(vehiculo));
         }
 
+        /*
+         * Metodo para buscar la placa de un vehiculo de forma correcta
+         */
         @Test
         public void testBuscarRegistroPorPlaca() {
                 Parqueadero parqueadero = new Parqueadero("Parqueadero Central", 10);
@@ -170,6 +173,9 @@ public class ParqueaderoTest {
                                 "El registro encontrado debería coincidir con el registro2.");
         }
 
+        /*
+         * prueba que asignar a un vehiculo un puesto no disponible en el parqueadero
+         */
         @Test
         public void testLiberarPuesto() {
                 // Configuración inicial
