@@ -35,6 +35,10 @@ public class Main {
                     break;
                 case 2:
                     // Registrar entrada de vehículo
+                    if (parqueadero == null) {
+                        System.out.println("No hay parqueadero creado.");
+                        break;
+                    }
                     System.out.print("Ingrese la placa del vehículo: ");
                     String placaEntrada = scanner.nextLine();
                     System.out.print("Ingrese el modelo del vehículo: ");
