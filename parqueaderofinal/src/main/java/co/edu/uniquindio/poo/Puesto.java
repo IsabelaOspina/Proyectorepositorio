@@ -5,7 +5,7 @@ public class Puesto {
     private Vehiculo vehiculo;
 
     /**
-     * constructo clase puesto
+     * constructor clase puesto
      * 
      * @param disponible
      */
