@@ -5,7 +5,7 @@ public class Propietario {
     private String nombre;
 
     /**
-     * constructor de propietario
+     * constructor de la clase propietario
      * @param id
      * @param nombre
      */
