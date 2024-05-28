@@ -93,7 +93,6 @@ public class Main {
                         registroSalida.setHoraSalida(horaSalida);
                         double tarifa = parqueadero.calcularTarifa(registroSalida, registroSalida.getVehiculo());
                         parqueadero.liberarPuesto(registroSalida.getVehiculo());
-                        // parqueadero.registrarSalida(registroSalida);
                         System.out.println("Salida registrada. Monto a pagar: $" + tarifa);
 
                     } else {
