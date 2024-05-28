@@ -26,6 +26,9 @@ public class Puesto {
 
     }
 
+    /**
+     * metodo para identificar el propietario del vehiculo
+     */
     public void identificarPropietario(Vehiculo vehiculo) {
         vehiculo.getPropietario();
 
@@ -47,6 +50,9 @@ public class Puesto {
         this.disponible = disponible;
     }
 
+    /**
+     * metodo get
+     */
     public Vehiculo getVehiculo() {
         return vehiculo;
     }

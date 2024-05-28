@@ -107,6 +107,9 @@ public class Parqueadero {
         this.puestos = puestos;
     }
 
+    /*
+     * Metdo que permite asignar puesto a un vehiculo
+     */
     public boolean asignarPuesto(Vehiculo vehiculo) {
         for (Puesto puesto : this.puestos) {
             if (puesto.isDisponible()) {
@@ -118,17 +121,25 @@ public class Parqueadero {
         return false; // No hay puestos disponibles
     }
 
+    /*
+     * metodo para liberar un puesto de un parqueadero haciendo que este disponible
+     * nuevamente
+     */
     public void liberarPuesto(Vehiculo vehiculo) {
         for (Puesto puesto : this.puestos) {
-            if (!puesto.isDisponible()) {
+            if (!puesto.isDisponible()) { // comprueba si el puesto no esta disponible
                 puesto.setDisponible(true); // Marcar el puesto como disponible
                 return; // Salir del método una vez que el puesto se ha liberado
             }
         }
-        // Si el vehículo no se encuentra en el parqueader.
+        // Si el vehículo no se encuentra en el parqueadero
         throw new IllegalArgumentException("El vehículo no está en el parqueadero.");
     }
 
+    /*
+     * Metodo que busca un registro específico en una colección de registros,
+     * basándose en la placa del vehículo
+     */
     public Registro buscarRegistroPorPlaca(String placa) {
         for (Registro registro : registros) {
             if (registro.getVehiculo().getPlaca().equals(placa)) {
@@ -140,30 +151,51 @@ public class Parqueadero {
         throw new IllegalArgumentException("No se encontró ningún registro con la placa: " + placa);
     }
 
+    /*
+     * metodo que permite modificar la lista de registros
+     */
     public void setRegistros(List<Registro> registros) {
         this.registros = registros;
     }
 
+    /*
+     * Metodo qu epermite obtener el nombre del parqueadero
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /*
+     * metodo que permite modificar el nomnbre del parqueadero
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /*
+     * metodo que permite obtener el numero de puestos de un parqueadero
+     */
     public int getNumeroPuestos() {
         return numeroPuestos;
     }
 
+    /*
+     * metodo qu epermite modificar el numero de puestos de un parqueadero
+     */
     public void setNumeroPuestos(int numeroPuestos) {
         this.numeroPuestos = numeroPuestos;
     }
 
+    /*
+     * metodo que permite obtener la lista de registros
+     */
     public List<Registro> getRegistros() {
         return registros;
     }
 
+    /*
+     * metodo para obtener el vectro de puestos
+     */
     public Puesto[] getPuestos() {
         return puestos;
     }
